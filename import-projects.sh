@@ -26,7 +26,9 @@ do
            git clone $line projects/$name -q
         fi
     else
-        echo "$f doesn't match" >&2 
+        if [ ! -z $line ]; then
+          echo "$line doesn't match" >&2 
+        fi
     fi
 done <"$file"
 
